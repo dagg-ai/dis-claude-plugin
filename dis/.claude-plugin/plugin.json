@@ -1,0 +1,17 @@
+{
+  "name": "dis",
+  "description": "Connect to DIS for holistic project planning and analysis.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Dagg Intelligence Services AB",
+    "url": "https://app.getdis.ai"
+  },
+  "repository": "https://github.com/dagg-ai/dis-claude-plugin",
+  "license": "MIT",
+  "mcpServers": {
+    "dis": {
+      "type": "http",
+      "url": "https://mcp.getdis.ai/mcp"
+    }
+  }
+}

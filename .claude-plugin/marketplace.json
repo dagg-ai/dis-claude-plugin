@@ -1,0 +1,13 @@
+{
+  "name": "DIS-marketplace",
+  "owner": {
+    "name": "Dagg Intelligence Services AB"
+  },
+  "plugins": [
+    {
+      "name": "dis",
+      "source": "./dis",
+      "description": "Connect to DIS for holistic project planning and analysis."
+    }
+  ]
+}
