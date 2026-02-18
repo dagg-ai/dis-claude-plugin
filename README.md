@@ -4,10 +4,15 @@ Dagg Intelligence Services (DIS) builds a knowledge graph from your development 
 
 ## Installation
 
-Install from this repository:
+To install from this repository, first add the plugin:
 
 ```bash
 /plugin marketplace add dagg-ai/dis-claude-plugin
+```
+
+Next, install DIS: 
+
+```bash
 /plugin install dis
 ```
 
