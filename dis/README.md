@@ -1,24 +1,43 @@
-# DIS Claude Code Plugin
+# DIS Plugin
 
-Connects Claude Code to the DIS knowledge graph via MCP tools. See the [plugin documentation](https://docs.claude.com/en/docs/claude-code/plugins).
+Connects coding agents to the DIS knowledge graph via the `dis` CLI. Works with Claude Code, Codex, and other agents that support skills.
 
 ## What is DIS?
 
-Dagg Intelligence Services builds a knowledge graph from GitHub, Linear, Slack, and other development tools. This plugin provides MCP tools backed by that knowledge graph, giving Claude rich context about your project.
+Dagg Intelligence Services builds a knowledge graph from GitHub, Linear, Slack, and other development tools. This plugin provides a skill backed by that knowledge graph, giving your agent rich context about your project.
+
+## Installation
+
+### Claude Code
+
+```bash
+/plugin marketplace add github.com/dagg-ai/dis-claude-plugin
+/plugin install dis
+```
+
+### Codex
+
+Copy the skill into your project:
+
+```bash
+mkdir -p .agents/skills
+cp -r skills/. .agents/skills/
+```
 
 ## Setup
 
-After installing the plugin, ask Claude to help you set up DIS. The `setup-dis` skill will guide you through account creation and setup.
+After installing, run `/setup-dis` to get started. It will guide you through:
 
-## Usage Examples
+1. Account creation at https://app.getdis.ai
+2. Project setup and configuration
+3. Authentication
+4. Connectivity verification
 
-**Setup:**
-- "Help me set up DIS" - activates guided onboarding
+## Features
 
-**Query tickets:**
-- "What's the status of PROJ-123?"
-- "Show me details about ABC-456"
-
-**Implementation planning:**
-- "Implement feature X" - triggers comprehensive context gathering
-- "Plan the implementation of Y" - gathers related code, docs, and historical decisions
+- Ask questions about code structure, relationships, and definitions
+- Query tickets, PRs, and project history
+- Search project documentation and meeting notes
+- Gather comprehensive implementation context before code changes
+- Time-bounded research queries
+- Auto-activates on ticket references (e.g., DAG-123, PROJ-456)

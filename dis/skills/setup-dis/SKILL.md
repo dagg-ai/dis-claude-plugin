@@ -1,26 +1,84 @@
 ---
-name: Setup DIS
-description: Setup DIS account to go with the plugin. 
-allowed-tools:
-  - Read
-  - Edit
-  - mcp__plugin_dis_dis__health
-  - mcp__plugin_dis_dis__information_query
+name: setup-dis
+description: |
+  First-time DIS setup: account creation, project creation, .dis.toml configuration, and CLI verification.
+  Use when DIS is not yet configured, .dis.toml is missing, or the user is setting up a new project.
 ---
-# Setup DIS
 
-Guides the user through the process of setting up their DIS account. This is a simple onboarding script. Be clear, and to the point. Go through each step, make sure you prompt for user verification when needed.
+# setup-dis
 
-## Instructions
+Guide the user through first-time DIS setup and generate a `.dis.toml` at the repository root.
 
-1. **New account** - Prompt the user to create their account at https://app.getdis.ai. The user must verify that they have an account before proceeding to the next step.
+## Flow
 
-2. **New project** - Prompt the user to set up a DIS project at https://app.getdis.ai/projects/.
+By default, run through all steps automatically, only pausing for user input where noted. If the user asks for an interactive walkthrough, pause after each step for confirmation.
 
-3. **Check the project FQID** - If there is already a project fqid in the root CLAUDE.MD-file, ask if it's the correct one (you may link to https://app.getdis.ai/projects/${PROJECT_FQID} to verify).
+### 1. Account and Project
 
-4. **Set the project FQID** - If the project fqid in the root CLAUDE.MD-file was incorrect, or if there was none. Ask the user for the correct project fqid, and add it to the root CLAUDE.MD.
+Direct the user to:
+1. Create an account at https://app.getdis.ai (skip if they already have one)
+2. Create a project at https://app.getdis.ai/projects/
+3. Copy the **project FQID** (UUID) from the project settings page
 
-5. **Check system health** - Use the `mcp__plugin_dis_dis__health` tool to verify MCP authentication, and ensure the system is healthy.
+Ask the user to paste their project FQID before continuing.
 
-6. **Get some information** - Use the `mcp__plugin_dis_dis__information_query` tool to ask DIS about the most recently created issue, and report back to the user.
+### 2. Authenticate
+
+Run `scripts/dis auth login` to authenticate via OAuth. The CLI binary location is documented in the `dis` skill.
+
+### 3. Generate `.dis.toml`
+
+Scan the repository to build the config automatically:
+
+1. **Detect source code folders** -- scan the repo and list every project as `[project_root, code_folder]` pairs:
+   - `project_root` is the directory relative to repo root (`""` means the repo root itself)
+   - `code_folder` is the subdirectory within that project containing source code
+   - Example: `["service", "src"]` means project "service" with code in `service/src/`
+   - A project can have multiple entries: `["service", "src"]`, `["service", "tests"]`
+   - Every project in the repo must be listed for DIS to ingest it
+
+2. **Detect source code extensions** -- find which code extensions are present:
+   - Common: `.py`, `.ts`, `.tsx`, `.js`, `.jsx`, `.go`, `.rs`, `.java`, `.tf`, `.tfvars`
+   - Only include extensions that actually exist in the detected source folders
+
+3. **Documentation extensions** -- default to `[".md", ".markdown", ".rst", ".txt"]`, filtered to those present in the repo
+
+4. **Write `.dis.toml`** at the repository root:
+
+```toml
+version = 1
+
+project_fqid = "<pasted-uuid>"
+
+[source]
+source_code_folders = [
+  ["", "src"],
+  ["service", "src"],
+  ["service", "tests"],
+  ["webapp", "src"],
+]
+
+source_code_extensions = [".py", ".ts", ".tsx"]
+
+documentation_extensions = [".md"]
+```
+
+Present the generated config to the user for review before writing.
+
+### 4. Verify
+
+Run `scripts/dis health` to confirm connectivity, then `scripts/dis search "most recently created issue"` as a smoke test.
+
+## Config Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `version` | integer | Always `1` |
+| `project_fqid` | string (UUID) | Project identifier from https://app.getdis.ai |
+| `[source].source_code_folders` | array of `[project_root, code_folder]` pairs | Each pair maps a project to a code directory. List all projects -- DIS only ingests what is listed |
+| `[source].source_code_extensions` | array of strings | File extensions to index as code |
+| `[source].documentation_extensions` | array of strings | File extensions to index as documentation |
+
+## Notes
+
+- `.dis.toml` should be committed to the repository -- the project FQID is not a secret, it connects the repo to the DIS project.
