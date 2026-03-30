@@ -1,0 +1,6 @@
+{
+  "name": "dis",
+  "description": "Connect to DIS for holistic project planning and analysis.",
+  "version": "0.3.0",
+  "contextFileName": "GEMINI.md"
+}

@@ -1,27 +1,94 @@
-# DIS Plugin for Claude Code
+# DIS Plugin
 
-Dagg Intelligence Services (DIS) builds a knowledge graph from your development tools—GitHub, Slack, Linear, and more. This plugin provides MCP tools backed by your knowledge graph, giving Claude rich context about your project.
+Connects coding agents to the DIS knowledge graph via the `dis` CLI. Works with Claude Code, Cursor, Codex, OpenCode, and Gemini CLI.
+
+## What is DIS?
+
+Dagg Intelligence Services builds a knowledge graph from GitHub, Linear, Slack, and other development tools. This plugin provides skills backed by that knowledge graph, giving your agent rich context about your project.
 
 ## Installation
 
-To install from this repository, first add the plugin:
+### Claude Code
 
 ```bash
-/plugin marketplace add dagg-ai/dis-claude-plugin
+/plugin marketplace add dagg-ai/dis-plugin
+/plugin install dis@DIS-marketplace
 ```
 
-Next, install DIS: 
+### Cursor
+
+TODO: Not yet available.
+
+### Codex
+
+Tell Codex:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/dagg-ai/dis-plugin/refs/heads/main/.codex/INSTALL.md
+```
+
+Detailed docs: [.codex/INSTALL.md](.codex/INSTALL.md)
+
+### OpenCode
+
+Tell OpenCode:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/dagg-ai/dis-plugin/refs/heads/main/.opencode/INSTALL.md
+```
+
+Detailed docs: [.opencode/INSTALL.md](.opencode/INSTALL.md)
+
+### Gemini CLI
 
 ```bash
-/plugin install dis
+gemini extensions install https://github.com/dagg-ai/dis-plugin
 ```
 
-After installation, restart Claude Code and ask Claude to help you set up DIS. The `setup-dis` skill will guide you through account creation and setup.
+To update:
+
+```bash
+gemini extensions update dis
+```
+
+## Setup
+
+After installing, run `/setup-dis` (or ask your agent to run the `setup-dis` skill). It will guide you through:
+
+1. Account creation at https://app.getdis.ai
+2. Project setup and configuration
+3. Authentication
+4. Connectivity verification
 
 ## Features
 
-- Query tickets and issues across your connected tools
-- Gather comprehensive implementation context from your knowledge graph
-- Plan features with historical context and existing patterns
+- Ask questions about code structure, relationships, and definitions
+- Query tickets, PRs, and project history
+- Search project documentation and meeting notes
+- Gather comprehensive implementation context before code changes
+- Time-bounded research queries
+- Auto-activates on ticket references (e.g., DAG-123, PROJ-456)
 
-See [dis/README.md](./dis/README.md) for usage examples.
+## Updating
+
+### Claude Code / Cursor
+
+```bash
+/plugin update dis
+```
+
+### Codex
+
+```bash
+cd ~/.codex/dis && git pull
+```
+
+### OpenCode
+
+Restart OpenCode to pull the latest version.
+
+### Gemini CLI
+
+```bash
+gemini extensions update dis
+```

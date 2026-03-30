@@ -1,11 +1,13 @@
 {
   "name": "dis",
+  "displayName": "DIS",
   "description": "Connect to DIS for holistic project planning and analysis.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Dagg Intelligence Services AB",
     "url": "https://app.getdis.ai"
   },
-  "repository": "https://github.com/dagg-ai/dis-claude-plugin",
-  "license": "MIT"
+  "repository": "https://github.com/dagg-ai/dis-plugin",
+  "license": "MIT",
+  "skills": "./skills/"
 }

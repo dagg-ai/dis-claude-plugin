@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "dis",
-      "source": "./dis",
+      "source": ".",
       "description": "Connect to DIS for holistic project planning and analysis."
     }
   ]

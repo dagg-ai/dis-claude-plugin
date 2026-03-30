@@ -1,10 +1,10 @@
 #!/bin/sh
-# Runs @getdis/cli@0.0.2 via package runner.
+# Runs @getdis/cli@0.3.0 via package runner.
 # Tries bunx first (Bun), then npx (Node).
 if command -v bunx >/dev/null 2>&1; then
-    exec bunx @getdis/cli@0.0.2 "$@"
+    exec bunx @getdis/cli@0.3.0 "$@"
 elif command -v npx >/dev/null 2>&1; then
-    exec npx -y @getdis/cli@0.0.2 "$@"
+    exec npx -y @getdis/cli@0.3.0 "$@"
 else
     echo "Error: Neither bunx nor npx found. Install Bun or Node.js." >&2
     exit 1
