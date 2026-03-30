@@ -17,7 +17,7 @@ Dagg Intelligence Services builds a knowledge graph from GitHub, Linear, Slack, 
 
 ### Cursor
 
-TODO: Not yet available.
+Coming soon.
 
 ### Codex
 
@@ -43,12 +43,6 @@ Detailed docs: [.opencode/INSTALL.md](.opencode/INSTALL.md)
 
 ```bash
 gemini extensions install https://github.com/dagg-ai/dis-plugin
-```
-
-To update:
-
-```bash
-gemini extensions update dis
 ```
 
 ## Setup

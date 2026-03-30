@@ -12,16 +12,6 @@ Add DIS to the `plugin` array in your `opencode.json`:
 
 Restart OpenCode. Skills are auto-discovered.
 
-## Pinning a Version
-
-To pin to a specific version:
-
-```json
-{
-  "plugin": ["dis@git+https://github.com/dagg-ai/dis-plugin.git#v0.2.0"]
-}
-```
-
 ## Setup
 
 After installation, ask OpenCode to run the `setup-dis` skill. It will guide you through account creation, project setup, and authentication.
