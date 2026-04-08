@@ -5,9 +5,9 @@ Ask questions about source code. Uses semantic code search to find relevant file
 ## Usage
 
 ```bash
-scripts/dis ask "How does authentication work?"
-scripts/dis ask "Where is the background task runner defined?"
-scripts/dis ask "What modules handle webhook processing?"
+npx @getdis/cli ask "How does authentication work?"
+npx @getdis/cli ask "Where is the background task runner defined?"
+npx @getdis/cli ask "What modules handle webhook processing?"
 ```
 
 ## When to Use

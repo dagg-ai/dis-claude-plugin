@@ -5,8 +5,8 @@ Show the dependency graph for code entities.
 ## Usage
 
 ```bash
-scripts/dis deps "module.ClassName"
-scripts/dis deps "package.function_name"
+npx @getdis/cli deps "module.ClassName"
+npx @getdis/cli deps "package.function_name"
 ```
 
 ## When to Use

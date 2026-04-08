@@ -5,7 +5,7 @@ Use this workflow before implementing features, modifying code, or planning refa
 ## Phase 1: High-Level Context
 
 ```bash
-scripts/dis research "The user's feature request verbatim"
+npx @getdis/cli research "The user's feature request verbatim"
 ```
 
 Review the response for:
@@ -18,9 +18,9 @@ Review the response for:
 Based on Phase 1 findings, formulate 3-5 targeted queries:
 
 ```bash
-scripts/dis search "What files define result types in disengine.llm?"
-scripts/dis search "What modules call disengine.llm.service.text_completion?"
-scripts/dis search "What PRs modified the background task runner?" --ref DAG-78
+npx @getdis/cli search "What files define result types in disengine.llm?"
+npx @getdis/cli search "What modules call disengine.llm.service.text_completion?"
+npx @getdis/cli search "What PRs modified the background task runner?" --ref DAG-78
 ```
 
 Collect entity FQNs from responses for Phase 3.
@@ -28,7 +28,7 @@ Collect entity FQNs from responses for Phase 3.
 ## Phase 3: Resolve Entities
 
 ```bash
-scripts/dis resolve "module.Class" "pkg.func"
+npx @getdis/cli resolve "module.Class" "pkg.func"
 ```
 
 Resolves FQNs from Phase 2 to exact file locations and line numbers.
@@ -45,8 +45,8 @@ Read the identified files (relevant line ranges only) to confirm context is suff
 For a complete implementation plan in one shot:
 
 ```bash
-scripts/dis plan "Add SSO support for enterprise customers"
-scripts/dis plan "Add SSO support" --repair --max-questions 8
+npx @getdis/cli plan "Add SSO support for enterprise customers"
+npx @getdis/cli plan "Add SSO support" --repair --max-questions 8
 ```
 
 Options:

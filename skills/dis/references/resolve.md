@@ -5,8 +5,8 @@ Resolve entity FQNs to their file locations and line numbers.
 ## Usage
 
 ```bash
-scripts/dis resolve "auth.service.login"
-scripts/dis resolve "auth.service.login" "models.User"
+npx @getdis/cli resolve "auth.service.login"
+npx @getdis/cli resolve "auth.service.login" "models.User"
 ```
 
 ## When to Use

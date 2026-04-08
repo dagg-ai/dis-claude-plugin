@@ -5,7 +5,7 @@ Check project status including ingestion progress, connected integrations, and d
 ## Usage
 
 ```bash
-scripts/dis status
+npx @getdis/cli status
 ```
 
 ## When to Use

@@ -7,7 +7,7 @@
     {
       "name": "dis",
       "description": "Connect to DIS for holistic project planning and analysis.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "source": "./"
     }
   ]

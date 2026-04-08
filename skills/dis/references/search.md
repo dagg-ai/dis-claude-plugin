@@ -5,11 +5,11 @@ Search the knowledge graph for tickets, PRs, commits, project history, documenta
 ## Usage
 
 ```bash
-scripts/dis search "What PRs modified the auth module?"
-scripts/dis search "open bugs in the ingestion pipeline"
-scripts/dis search "What is DAG-78 about?" --ref DAG-78
-scripts/dis search "deployment guide" --in docs
-scripts/dis search "What was discussed in yesterday's standup?" --in meetings
+npx @getdis/cli search "What PRs modified the auth module?"
+npx @getdis/cli search "open bugs in the ingestion pipeline"
+npx @getdis/cli search "What is DAG-78 about?" --ref DAG-78
+npx @getdis/cli search "deployment guide" --in docs
+npx @getdis/cli search "What was discussed in yesterday's standup?" --in meetings
 ```
 
 ## Options

@@ -24,7 +24,7 @@ Ask the user to paste their project FQID before continuing.
 
 ### 2. Authenticate
 
-Run `scripts/dis auth login` to authenticate via OAuth. The CLI binary location is documented in the `dis` skill.
+Run `npx @getdis/cli auth login` to authenticate via OAuth.
 
 ### 3. Generate `.dis.toml`
 
@@ -67,7 +67,7 @@ Present the generated config to the user for review before writing.
 
 ### 4. Verify
 
-Run `scripts/dis health` to confirm connectivity, then `scripts/dis search "most recently created issue"` as a smoke test.
+Run `npx @getdis/cli health` to confirm connectivity, then `npx @getdis/cli search "most recently created issue"` as a smoke test.
 
 ## Config Reference
 
