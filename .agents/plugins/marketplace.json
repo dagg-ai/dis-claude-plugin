@@ -8,7 +8,7 @@
       "name": "dis",
       "source": {
         "source": "local",
-        "path": "./"
+        "path": "./dis"
       },
       "policy": {
         "installation": "AVAILABLE",

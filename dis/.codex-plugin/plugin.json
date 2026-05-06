@@ -1,6 +1,6 @@
 {
   "name": "dis",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Connect to DIS for holistic project planning and analysis.",
   "author": {
     "name": "Dagg Intelligence Services AB",
@@ -16,8 +16,8 @@
     "project-context",
     "planning"
   ],
-  "skills": "./skills/",
-  "hooks": "./hooks/codex-hooks.json",
+  "skills": "../skills/",
+  "hooks": "../hooks/codex-hooks.json",
   "interface": {
     "displayName": "DIS",
     "shortDescription": "Project knowledge graph context for Codex.",
