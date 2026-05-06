@@ -21,13 +21,17 @@ Coming soon.
 
 ### Codex
 
-Tell Codex:
-
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/dagg-ai/dis-plugin/refs/heads/main/.codex/INSTALL.md
+```bash
+codex plugin marketplace add dagg-ai/dis-plugin
 ```
 
-Detailed docs: [.codex/INSTALL.md](.codex/INSTALL.md)
+Then restart Codex, open the plugin directory, choose `DIS Marketplace`, and install `DIS`.
+
+Alternatively, tell Codex:
+
+```
+Install the DIS Codex plugin from the dagg-ai/dis-plugin marketplace.
+```
 
 ### OpenCode
 
@@ -74,7 +78,7 @@ After installing, run `/setup-dis` (or ask your agent to run the `setup-dis` ski
 ### Codex
 
 ```bash
-cd ~/.codex/dis && git pull
+codex plugin marketplace upgrade dis-marketplace
 ```
 
 ### OpenCode

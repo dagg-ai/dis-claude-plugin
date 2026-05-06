@@ -1,0 +1,39 @@
+{
+  "name": "dis",
+  "version": "0.4.0",
+  "description": "Connect to DIS for holistic project planning and analysis.",
+  "author": {
+    "name": "Dagg Intelligence Services AB",
+    "url": "https://app.getdis.ai"
+  },
+  "homepage": "https://app.getdis.ai",
+  "repository": "https://github.com/dagg-ai/dis-plugin",
+  "license": "MIT",
+  "keywords": [
+    "dis",
+    "knowledge-graph",
+    "code-search",
+    "project-context",
+    "planning"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/codex-hooks.json",
+  "interface": {
+    "displayName": "DIS",
+    "shortDescription": "Project knowledge graph context for Codex.",
+    "longDescription": "Use DIS to query code, tickets, PRs, docs, meetings, dependencies, and implementation context from your project's knowledge graph.",
+    "developerName": "Dagg Intelligence Services AB",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Interactive"
+    ],
+    "websiteURL": "https://app.getdis.ai",
+    "defaultPrompt": [
+      "Set up DIS for this repository.",
+      "Use DIS to research this ticket.",
+      "Use DIS to plan this code change."
+    ],
+    "brandColor": "#10A37F"
+  }
+}
